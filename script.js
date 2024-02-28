@@ -2,13 +2,19 @@ const form = document.querySelector("#new-todo-form")
 const todoInput = document.querySelector("#todo-input")
 const list = document.querySelector("#list")
 const template = document.querySelector("#list-item-template")
-// Add todos
-    //user will type in todo and click  add todo button. This should add the todo
+const LOCAL_STORAGE_PREFIX = "ADVANCED_TODO_LIST"
+const TODOS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}-todos`
+const todos = loadTodos()
+
+todos.forEach(renderTodo)
+
 form.addEventListener("submit", e => {
     e.preventDefault()
     const todoName = todoInput.value
     if(todoName === "") return
+    todos.push(todoName)
     renderTodo(todoName)
+    saveTodos()
     todoInput.value = ""
 
 })
@@ -20,11 +26,11 @@ function renderTodo(todoName) {
     list.appendChild(templateClone)
 
 }
-    //to the list above.
+function loadTodos() {
+    const todoString = localStorage.getItem(TODOS_STORAGE_KEY)
+    return JSON.parse(todoString) || []
+}
 
-
-
-//Delete todos
-// Complete todos
-//Save todos
-//Load todos
+function saveTodos() {
+    localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos))
+}
