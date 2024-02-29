@@ -49,12 +49,15 @@ function renderTodo(todo) {
     const listItem = templateClone.querySelector(".list-item")
     listItem.dataset.todoId = todo.id
     const textElement = templateClone.querySelector("[data-list-item-text]")
+    
     textElement.innerText = todo.name
     const checkbox = templateClone.querySelector("[data-list-item-checkbox]")
     checkbox.checked = todo.complete
     list.appendChild(templateClone)
 
 }
+
+
 function loadTodos() {
     const todoString = localStorage.getItem(TODOS_STORAGE_KEY)
     return JSON.parse(todoString) || []
@@ -63,3 +66,17 @@ function loadTodos() {
 function saveTodos() {
     localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos))
 }
+
+
+//HTML elements
+
+function createHeader() {
+    const header = document.getElementById("header")
+    header.classList.add("header")
+    const appTitle = document.createElement("h2")
+    appTitle.classList.add("app-title")
+    appTitle.textContent = "Task organiser"
+    header.appendChild(appTitle)
+    return header
+}
+createHeader()
