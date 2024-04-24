@@ -1,11 +1,14 @@
-# todo-list-advanced
+# Todo-List-Advanced
 
-In this project I built a to do list app. The user is able to add and delete tasks. 
+In this project I added a simple interface to the previous Todo List application.
 
 The tasks are saved in local storage.
 
-created by using : Javascript, HTML and CSS
+**Built with: Javascript, HTML and CSS**
 
 Live link :
 
 https://adrians90.github.io/todo-list-advanced/
+
+![image](https://github.com/adrians90/todo-list-advanced/assets/128593202/6d66f06a-cd94-414f-a4cf-755653c748c1)
+
